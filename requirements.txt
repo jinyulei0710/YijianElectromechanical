@@ -1,0 +1,12 @@
+pypdf2
+pdfplumber
+chromadb
+openai
+python-dotenv
+langchain
+langchain-community
+langchain-openai
+tiktoken
+flask
+flask-cors
+

@@ -1,0 +1,410 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 头部 */
+.header {
+  background: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.header h1 {
+  color: #667eea;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+/* 导航标签 */
+.nav-tabs {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.nav-tab {
+  padding: 10px 20px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.nav-tab:hover {
+  background: #e0e0e0;
+  color: #667eea;
+}
+
+.nav-tab.active {
+  background: #667eea;
+  color: white;
+}
+
+.stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.stats span {
+  padding: 0.3rem 0.8rem;
+  background: #f0f0f0;
+  border-radius: 15px;
+}
+
+/* 主体内容 */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+/* 侧边栏 */
+.sidebar {
+  width: 250px;
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  color: #667eea;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.subject-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.subject-btn {
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.subject-btn:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.subject-btn.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+  font-weight: bold;
+}
+
+.tips {
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.tips ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tips li {
+  padding: 0.5rem 0;
+  color: #666;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.tips li:before {
+  content: "• ";
+  color: #667eea;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* 聊天容器 */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* 消息区域 */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 欢迎界面 */
+.welcome {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.welcome h2 {
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.welcome p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.example-questions {
+  margin-top: 2rem;
+}
+
+.example-questions h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.example-questions button {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0.8rem auto;
+  padding: 1rem;
+  background: #f8f9ff;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.example-questions button:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* 消息样式 */
+.message {
+  max-width: 80%;
+  padding: 1rem;
+  border-radius: 10px;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.user {
+  align-self: flex-end;
+  background: #667eea;
+  color: white;
+  margin-left: auto;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: #f0f0f0;
+  color: #333;
+}
+
+.message.error {
+  align-self: flex-start;
+  background: #ffe0e0;
+  color: #d32f2f;
+  border: 1px solid #ffcdd2;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.message-content {
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 加载动画 */
+.typing-indicator {
+  display: inline-flex;
+  gap: 4px;
+  margin-right: 8px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 输入区域 */
+.input-area {
+  padding: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 1rem;
+  background: #fafafa;
+}
+
+.input-area textarea {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+  transition: border-color 0.3s;
+}
+
+.input-area textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.input-area textarea:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.send-btn {
+  padding: 1rem 2rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.send-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 页脚 */
+.footer {
+  background: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 滚动条样式 */
+.messages::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages::-webkit-scrollbar-track,
+.sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover,
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-height: 200px;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+
+  .stats {
+    font-size: 0.8rem;
+    gap: 0.5rem;
+  }
+}
+
